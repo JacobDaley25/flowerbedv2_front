@@ -25,11 +25,11 @@ const App = () => {
 
     <div className='main'>
       <Routes>
-        <Route path='/about' component={About} />
-        <Route path='/profile' component={Profile} />
-        <Route path='/timeline' component={Timeline} />
-        <Route path='/login' component={Login} />
-        <Route path='/register' component={Register} />
+        <Route path='/about' element={About} />
+        <Route path='/profile' element={Profile} />
+        <Route path='/timeline' element={Timeline} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={Register} />
       </Routes>
     </div>
     </>
