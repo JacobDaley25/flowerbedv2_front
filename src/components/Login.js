@@ -31,7 +31,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try{
-      const response = await axios.post('https://theflowerbedv2.herokuapp.com/auth',
+      const response = await axios.post('https://theflowerbedv2back.herokuapp.com/auth',
       {
         username: user,
         password: password

@@ -12,7 +12,7 @@ const App = () => {
   }
 
   return(<>
-    <h1>hi</h1>
+    <h1>TheFlowerBedv2</h1>
     <nav>
       <ul>
         <li><Link to='/about'>About</Link></li>
@@ -25,11 +25,11 @@ const App = () => {
 
     <div className='main'>
       <Routes>
-        <Route path='/about' element={About} />
-        <Route path='/profile' element={Profile} />
-        <Route path='/timeline' element={Timeline} />
+        <Route path='/about' element={<About />} />
+        <Route path='/profile' element={<Profile />} />
+        <Route path='/timeline' element={<Timeline />} />
         <Route path='/login' element={<Login />} />
-        <Route path='/register' element={Register} />
+        <Route path='/register' element={<Register />} />
       </Routes>
     </div>
     </>
