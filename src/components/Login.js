@@ -1,8 +1,10 @@
 import {createContext, useRef, useState, useEffect, useContext, useMemo} from 'react'
 import AuthContext from '../context/AuthProvider'
 import App from '../App'
+import Profile from './Profile'
 import axios from 'axios'
 const LOGIN_URL = '/auth'
+
 
 const UserContext = createContext('')
 
@@ -31,7 +33,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try{
-      const response = await axios.post('https://theflowerbedv2back.herokuapp.com/auth',
+      const response = await axios.post('https://flowerbedv2back.herokuapp.com/auth',
       {
         username: user,
         password: password

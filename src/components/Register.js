@@ -97,7 +97,7 @@ const Register = () => {
         onFocus={()=> setUserFocus(true)}
         onBlur={()=> setUserFocus(false)}
       />
-        
+
         <label htmlFor='password'>Password:</label>
         <input
         type='password'
