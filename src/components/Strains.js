@@ -45,6 +45,7 @@ const Strains = () => {
         setNewType('')
         setNewBody('')
         setNewImage('')
+        setAddCheck(!addCheck)
       })
   })
   }

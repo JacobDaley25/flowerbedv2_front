@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/button'
 import Form from 'react-bootstrap/form'
 import Card from 'react-bootstrap/card'
 
-const Grows = () => {
+const Grows = (props) => {
   const [grows, setGrows] = useState([])
   const [newName, setNewName] = useState('')
   const [newLight, setNewLight] = useState('')
@@ -15,6 +15,9 @@ const Grows = () => {
   const [newWeek, setNewWeek] = useState(0)
   const [newHarvestAmount, setNewHarvestAmount] = useState('')
   const [addCheck, setAddCheck] = useState(false)
+  const [replyCheck, setReplyCheck] = useState(false)
+  const [repliesCheck, setRepliesCheck] = useState(false)
+  const [newBody, setNewBody] = useState('')
 
   useEffect(()=>{
     axios
@@ -25,6 +28,40 @@ const Grows = () => {
 
   const showAddForm = () => {
     setAddCheck(!addCheck)
+  }
+
+  const handleNewReplySubmit = (growData, event) => {
+    event.preventDefault()
+    console.log(growData);
+    axios.put(`https://flowerbedv2back.herokuapp.com/grows/${growData}`,{
+      replies:[{
+        username: props.user,
+        body: newBody
+      }]
+    }
+
+
+    ).then((response)=>{
+      axios
+        .get('https://flowerbedv2back.herokuapp.com/grows')
+        .then((response)=>{
+          setGrows(response.data)
+          setNewBody('')
+          setReplyCheck(false)
+        })
+    })
+  }
+
+  const showReplies = () => {
+    setRepliesCheck(!repliesCheck)
+  }
+
+  const handleNewBodyChange = (event) => {
+    setNewBody(event.target.value)
+  }
+
+  const showReplyForm = () => {
+    setReplyCheck(!replyCheck)
   }
 
   const handleNewFormSubmit = (event) => {
@@ -50,6 +87,7 @@ const Grows = () => {
         setNewNutrients('')
         setNewWeek(0)
         setNewHarvestAmount('')
+        setAddCheck(!addCheck)
       })
     })
   }
@@ -140,7 +178,37 @@ const Grows = () => {
         <p className='nutrientsUsed'>Nutrients Used:{grow.nutrientsUsed}</p>
         <p className='week'>Week:{grow.week}</p>
         <p className='harvest'>Harvest Amount:{grow.harvestAmount}</p>
+        <Button onClick={showReplies} varient='primary'>Replies</Button>
+        <Button onClick={showReplyForm} variant='primary'>Reply</Button>
         </Card.Text>
+        { replyCheck ? (
+          <Form onSubmit={ (event) => {handleNewReplySubmit(grow._id, event)}}>
+        <Form.Group className='mb-3' controlId='formBasicUsername'>
+        <Form.Control type='hidden' value={props.user} />
+        </Form.Group>
+
+        <Form.Group className='mb-3' controlId='formBasicReply'>
+          <Form.Label>Reply</Form.Label>
+          <Form.Control type='text' placeholder='Your Reply Here' onChange={handleNewBodyChange} />
+          </Form.Group>
+        <Button variant='primary' type='submit'>Send</Button>
+        </Form>
+
+      ):null}
+
+      { repliesCheck ? ( <div>
+        { grow.replies.map((reply)=>{
+        return <Card className='repliesCard' key={reply._id}>
+        <Card.Body>
+        <h3 className='repliedBy'>{reply.username}</h3>
+        <p className='replyText'>{reply.body}</p>
+
+        </Card.Body>
+        </Card>
+      })
+    }
+    </div>
+      ):null}
         </Card.Body>
         </Card>
         </>
