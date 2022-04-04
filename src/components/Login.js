@@ -1,7 +1,9 @@
 import {createContext, useRef, useState, useEffect, useContext, useMemo} from 'react'
 import AuthContext from '../context/AuthProvider'
+import{Routes,Route, Link} from 'react-router-dom'
 import App from '../App'
 import Profile from './Profile'
+import Register from './Register'
 import axios from 'axios'
 const LOGIN_URL = '/auth'
 
@@ -102,8 +104,11 @@ const Login = () => {
             <br />
             <button>Sign In</button>
           </form>
-            <p> Need an Account?<br />
-            </p>
+            <Link to='/register'> Need an Account?<br />
+            </Link>
+            <Routes>
+              <Route path='/register' element={<Register />}/>
+            </Routes>
           </section>
       )
     }

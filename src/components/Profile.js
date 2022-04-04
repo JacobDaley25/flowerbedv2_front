@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react'
 import axios from 'axios'
+import Card from 'react-bootstrap/card'
 import App from '../App'
 const Profile = (props) => {
   const [posts, setPosts] = useState([])
@@ -31,12 +32,14 @@ const Profile = (props) => {
   <h1>Your Posts</h1>
     {
       posts.filter(posts=> posts.username === props.user).map((post)=> {
-      return <div className='postcard' key={post._id}>
+      return <Card className='postcard' key={post._id}>
+      <Card.Body>
       <h1 className='postedBy'>{post.username}</h1>
       <h3 className='textdata'>{post.title}</h3>
       <p className='text'>{post.body}</p>
       <button onClick={ (event)=>{handleDelete(post) } }>Delete</button>
-      </div>
+      </Card.Body>
+      </Card>
     }
   )
   }

@@ -1,7 +1,21 @@
 .App {
   text-align: center;
 }
-
+.strain-container{
+  display: flex;
+  flex-wrap: wrap;
+}
+.strainCard{
+  height: 500px;
+  width: 300px;
+}
+.strainCard img{
+  height:400px;
+  width:200px;
+}
+.container{
+  background-image: url('background.pdf'); 
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
