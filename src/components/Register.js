@@ -1,6 +1,8 @@
 import {useRef, useState, useEffect} from 'react'
 import axios from 'axios'
 import{Routes,Route, Link} from 'react-router-dom'
+import Form from 'react-bootstrap/form'
+import Button from 'react-bootstrap/button'
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_].{3,23}$/gm;
 const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/gm;
 const REGISTER_URL = '/users';
@@ -85,9 +87,10 @@ const Register = () => {
       <section>
         <p ref={errorRef} className={errorMsg ? 'errmsg' : 'offscreen'} aria-live='assertive'>{errorMsg}</p>
         <h1>Register</h1>
-        <form onSubmit={handleSubmit}>
-        <label htmlFor='username'>Username:</label>
-        <input
+        <Form onSubmit={handleSubmit}>
+        <Form.Group className='mb-3' controlId='formBasicUsername'>
+        <Form.Label>Username:</Form.Label>
+        <Form.Control
         type='text'
         id='username'
         ref={userRef}
@@ -97,9 +100,11 @@ const Register = () => {
         onFocus={()=> setUserFocus(true)}
         onBlur={()=> setUserFocus(false)}
       />
+        </Form.Group>
 
-        <label htmlFor='password'>Password:</label>
-        <input
+        <Form.Group className='mb-3' controlId='formBasicPassword'>
+        <Form.Label>Password:</Form.Label>
+        <Form.Control
         type='password'
         id='password'
         onChange={(e)=> setPassword(e.target.value)}
@@ -109,9 +114,11 @@ const Register = () => {
         onFocus={()=> setPasswordFocus(true)}
         onBlue={()=> setPasswordFocus(false)}
         />
+        </Form.Group>
 
-        <label htmlFor='confirm_password'>Confirm Password: </label>
-        <input
+        <Form.Group className='mb-3' controlId='formBasicConfirm'>
+        <Form.Label>Confirm Password: </Form.Label>
+        <Form.Control
         type='password'
         id='confirm_password'
         onChange={(e)=> setMatchPassword(e.target.value)}
@@ -121,9 +128,10 @@ const Register = () => {
         onFocus={()=>setMatchFocus(true)}
         onBlur={()=>setMatchFocus(false)}
         />
+        </Form.Group>
+        <Button varient='primary' type='submit'>Sign Up</Button>
 
-        <button type='submit'>Sign Up</button>
-      </form>
+      </Form>
       <Link to='/login'>
       Already Registered?</Link>
       <span className='line'>

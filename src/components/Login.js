@@ -1,6 +1,8 @@
 import {createContext, useRef, useState, useEffect, useContext, useMemo} from 'react'
 import AuthContext from '../context/AuthProvider'
 import{Routes,Route, Link} from 'react-router-dom'
+import Form from 'react-bootstrap/form'
+import Button from 'react-bootstrap/button'
 import App from '../App'
 import Profile from './Profile'
 import Register from './Register'
@@ -81,9 +83,10 @@ const Login = () => {
           <h1>Welcome to TheFlowerBedv2</h1>
           <h2>Please sign in or create an account!</h2>
         <h1>Sign In</h1>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor='username'>Username: </label>
-          <input
+        <Form onSubmit={handleSubmit}>
+        <Form.Group className='mb-3' controlId='formBasicUsername'>
+          <Form.Label>Username: </Form.Label>
+          <Form.Control
             type='text'
             id='username'
             ref={userRef}
@@ -93,8 +96,11 @@ const Login = () => {
             required
             />
             <br />
-            <label htmlFor='password'>Password: </label>
-            <input
+            </Form.Group>
+
+          <Form.Group className='mb-3' controlId='formBasicPassword'>
+            <Form.Label >Password: </Form.Label>
+            <Form.Control
             type='password'
             id='password'
             onChange={(e)=> setPassword(e.target.value)}
@@ -102,8 +108,9 @@ const Login = () => {
             required
             />
             <br />
-            <button>Sign In</button>
-          </form>
+            </Form.Group>
+            <Button varient='primary' type='submit'>Sign In</Button>
+          </Form>
             <Link to='/register'> Need an Account?<br />
             </Link>
             <Routes>
