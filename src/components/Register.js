@@ -1,8 +1,7 @@
 import {useRef, useState, useEffect} from 'react'
 import axios from 'axios'
 import{Routes,Route, Link} from 'react-router-dom'
-import Form from 'react-bootstrap/form'
-import Button from 'react-bootstrap/button'
+import {Form,Button }from 'react-bootstrap'
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_].{3,23}$/gm;
 const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/gm;
 const REGISTER_URL = '/users';

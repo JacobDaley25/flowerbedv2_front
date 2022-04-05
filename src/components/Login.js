@@ -1,8 +1,8 @@
 import {createContext, useRef, useState, useEffect, useContext, useMemo} from 'react'
 import AuthContext from '../context/AuthProvider'
 import{Routes,Route, Link} from 'react-router-dom'
-import Form from 'react-bootstrap/form'
-import Button from 'react-bootstrap/button'
+import {Form,Button} from 'react-bootstrap'
+
 import App from '../App'
 import Profile from './Profile'
 import Register from './Register'

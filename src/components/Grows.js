@@ -1,8 +1,8 @@
 import {useState, useEffect} from 'react'
 import axios from 'axios'
-import Button from 'react-bootstrap/button'
-import Form from 'react-bootstrap/form'
+import {Button,Form} from 'react-bootstrap'
 import Card from 'react-bootstrap/card'
+
 
 const Grows = (props) => {
   const [grows, setGrows] = useState([])

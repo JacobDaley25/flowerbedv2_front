@@ -1,7 +1,6 @@
 import {useState, useEffect} from 'react'
 import axios from 'axios'
-import Form from 'react-bootstrap/form'
-import Button from 'react-bootstrap/button'
+import {Form,Button} from 'react-bootstrap'
 const Post = (props) => {
 const [posts, setPosts]=useState([])
 const [newTitle, setNewTitle]=useState('')

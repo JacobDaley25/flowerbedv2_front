@@ -1,15 +1,13 @@
 import {useState, useEffect} from 'react'
 import axios from 'axios'
-import Card from 'react-bootstrap/card'
-import Button from 'react-bootstrap/button'
-import Form from 'react-bootstrap/form'
+import {Card,Button,Form} from 'react-bootstrap'
 const Timeline = (props) => {
   const [posts, setPosts] = useState([])
   const [repliesCheck, setRepliesCheck] = useState(false)
   const [newBody, setNewBody] = useState('')
   const [replyCheck, setReplyCheck] = useState(false)
 
-  
+
   const handleNewReplySubmit = (postData, event) => {
     event.preventDefault()
     console.log(postData);
