@@ -9,9 +9,8 @@ import Post from './components/Post'
 import Register from './components/Register'
 import Grows from './components/Grows'
 import Strains from './components/Strains'
-import {Container, Nav, NavDropdown, Offcanvas, Form, Button} from 'react-bootstrap'
+import {Container, Nav, NavDropdown, Offcanvas, Form, FormControl, Button} from 'react-bootstrap'
 import Navbar from 'react-bootstrap/Navbar'
-import FormControl from 'react-bootstrap/formcontrol'
 import postimg from './post.png'
 const App = (props) => {
 
