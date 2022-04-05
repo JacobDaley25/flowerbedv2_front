@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react'
 import axios from 'axios'
-import {Card,Button,Form} from 'react-bootstrap'
+import {Button,Form} from 'react-bootstrap'
+import Card from 'react-bootstrap/Card'
 const Timeline = (props) => {
   const [posts, setPosts] = useState([])
   const [repliesCheck, setRepliesCheck] = useState(false)

@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
 import axios from 'axios'
-import Card from 'react-bootstrap/card'
+import Card from 'react-bootstrap/Card'
 import App from '../App'
 const Profile = (props) => {
   const [posts, setPosts] = useState([])

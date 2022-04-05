@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
 import axios from 'axios'
 import {Button,Form,Row,Col,Carousel}from 'react-bootstrap'
-import Card from 'react-bootstrap/card'
+import Card from 'react-bootstrap/Card'
 import bannerimg1 from '../bannerimg1.png'
 import bannerimg2 from '../bannerimg2.png'
 import bannerimg3 from '../bannerimg3.png'

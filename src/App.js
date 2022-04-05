@@ -11,7 +11,6 @@ import Grows from './components/Grows'
 import Strains from './components/Strains'
 import {Container, Nav, NavDropdown, Offcanvas, Form, FormControl, Button} from 'react-bootstrap'
 import Navbar from 'react-bootstrap/Navbar'
-import Card from 'react-bootstrap/card'
 import postimg from './post.png'
 const App = (props) => {
 

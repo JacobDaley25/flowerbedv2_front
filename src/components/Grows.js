@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
 import axios from 'axios'
 import {Button,Form} from 'react-bootstrap'
-import Card from 'react-bootstrap/card'
+import Card from 'react-bootstrap/Card'
 
 
 const Grows = (props) => {
