@@ -113,6 +113,7 @@ const Register = () => {
         onFocus={()=> setPasswordFocus(true)}
         onBlue={()=> setPasswordFocus(false)}
         />
+        <p>Password Requires an Uppercase,Number, and Special Character </p>
         </Form.Group>
 
         <Form.Group className='mb-3' controlId='formBasicConfirm'>
